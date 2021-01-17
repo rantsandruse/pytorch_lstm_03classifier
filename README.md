@@ -95,4 +95,4 @@ Target embedding was required for the seq2seq model, but not for binary sentimen
     # After: 
     word_to_ix = seqs_to_dictionary_v2(training_data)
      
-
+## [Next tutorial](https://github.com/rantsandruse/pytorch_lstm_04imdb) 
