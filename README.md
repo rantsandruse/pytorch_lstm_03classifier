@@ -1,11 +1,10 @@
 # Learn pytorch in 10 days - Day 3: Change an LSTM Tagger to LSTM classifier (with ~5 lines of code)
 
-This will be an easy day, as the main goal is to modify an LSTM tagger to an LSTM classifier. This will contribute 
+The main goal of day 3 is to modify an LSTM tagger to an LSTM classifier. This will contribute 
 to our ultimate goal of the week, which is to train a state-of-the-art binary sequence classifier for IMDB sentiment analysis.
   
-And why is this relevant?  As transfer learning gains more footing in the NLP world, this modification provides us with 
-an intuitive understanding: If we had already trained a robust seq2seq model based on what we learned on day 1 and day 2, 
-we could potentially reuse the same model architecture (and even trained weights) as a starting point for a sequence 
+This modification provides us with an intuitive understanding of transfer learning: If we had already trained a robust 
+seq2seq model based on what we learned on day 1 and day 2, we could potentially reuse the same model architecture (and even trained weights) as a starting point for a sequence 
 classification task, with just some minor changes in the output layer. Second, this exercise provides us with a deeper understanding of the LSTM architecture and how to manipulate the output.
  
 In order to transform an LSTM tagger into an LSTM classifier, you only need changes in just 5 lines of code. 
@@ -50,9 +49,7 @@ ii. BCEWithLogitsLoss requires data format as *float* instead of *long*:
         # After 
         loss = loss_fn(ypred_batch.float(), y_batch.float())
 
-As this point you might ask: 
-
-*Why do we choose nn.BCEWithlogitloss(), instead of sticking to nn.CrossEntropyLoss()) and apply it to the binary class, since 
+* So Why do we choose nn.BCEWithlogitloss(), instead of sticking to nn.CrossEntropyLoss()) and apply it to the binary class, since 
 they are theoretical equivalent?*
 
 The rationale is based on the difference in optimization process, even though they are mathematically equivalent. An intuitive 
@@ -61,7 +58,7 @@ results in a single output and requires sigmoid activation, whereas nn.CrossEntr
 
 nn.BCELossWithLogits activation:  <img src="https://render.githubusercontent.com/render/math?math=$\frac{1}{1%2Be^{-b0}}$">
 
-nn.BCECrossEntropyLoss activation: <img src=https://render.githubusercontent.com/render/math?math=\frac{e^{-b0}}{e^{-b0}%2Be^{-b1}}"> 
+nn.BCECrossEntropyLoss activation: <img src=https://render.githubusercontent.com/render/math?math=$\frac{e^{-b0}}{e^{-b0}%2Be^{-b1}}$"> 
 
 Therefore the latter requires twice as many parameters as the former in the activation layer, making the calculations more complex than necessary. 
 For a more in-depth understanding and related derivations, you can check an excellent blog post provided by Lei Mao [here](https://leimao.github.io/blog/Conventional-Classification-Loss-Functions/).  
@@ -98,6 +95,4 @@ Target embedding was required for the seq2seq model, but not for binary sentimen
     # After: 
     word_to_ix = seqs_to_dictionary_v2(training_data)
      
-## Reference code: 
-https://towardsdatascience.com/lstm-text-classification-using-pytorch-2c6c657f8fc0
 
