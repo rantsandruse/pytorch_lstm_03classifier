@@ -58,7 +58,7 @@ results in a single output and requires sigmoid activation, whereas nn.CrossEntr
 
 nn.BCELossWithLogits activation:  <img src="https://render.githubusercontent.com/render/math?math=$\frac{1}{1%2Be^{-b0}}$">
 
-nn.BCECrossEntropyLoss activation: <img src=https://render.githubusercontent.com/render/math?math=$\frac{e^{-b0}}{e^{-b0}%2Be^{-b1}}$"> 
+nn.BCECrossEntropyLoss activation: <img src="https://render.githubusercontent.com/render/math?math=$\frac{e^{-b0}}{e^{-b0}%2Be^{-b1}}$"> 
 
 Therefore the latter requires twice as many parameters as the former in the activation layer, making the calculations more complex than necessary. 
 For a more in-depth understanding and related derivations, you can check an excellent blog post provided by Lei Mao [here](https://leimao.github.io/blog/Conventional-Classification-Loss-Functions/).  
