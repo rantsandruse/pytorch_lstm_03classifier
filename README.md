@@ -1,4 +1,4 @@
-#Learn pytorch in 10 days - Day 3: Change an LSTM Tagger to LSTM classifier (with ~5 lines of code)
+# Learn pytorch in 10 days - Day 3: Change an LSTM Tagger to LSTM classifier (with ~5 lines of code)
 
 This will be an easy day, as the main goal is to modify an LSTM tagger to an LSTM classifier. This will contribute 
 to our ultimate goal of the week, which is to train a state-of-the-art binary sequence classifier for IMDB sentiment analysis.
@@ -8,7 +8,8 @@ an intuitive understanding: If we had already trained a robust seq2seq model bas
 we could potentially reuse the same model architecture (and even trained weights) as a starting point for a sequence 
 classification task, with just some minor changes in the output layer. Second, this exercise provides us with a deeper understanding of the LSTM architecture and how to manipulate the output.
  
-In order to transform an LSTM tagger into an LSTM classifier, you only need changes in just 5 lines of code:
+In order to transform an LSTM tagger into an LSTM classifier, you only need changes in just 5 lines of code. 
+
 ## Change No 1:  Change the output size 
 As we are training a binary classifier instead of a seq2seq model, the output size will be modified from the size of the sequence (*tag_size*) 
 to *1* to accommodate a single probabilistic output:
@@ -88,7 +89,7 @@ element we will end up with the padding hidden state, which might distort the mo
     lstm_out_forward = lstm_out[torch.arange(batch_size), X_lengths - 1]
 
 
-## Change No. 5 (Minor): Remove code associated with target embedding. 
+## Change No. 5: Remove code associated with target embedding. 
 Target embedding was required for the seq2seq model, but not for binary sentiment classification: 
 
     # Before: 
