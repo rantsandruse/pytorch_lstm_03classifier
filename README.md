@@ -31,7 +31,7 @@ We will change our loss function from the multiclass *CrossEntropyLoss* to the b
 Please note that there are a couple of minor differences in the input requirement of CrossEntropyLoss vs BCEWithLogitsLoss: 
 i. The input dimensions are a little different now; the dimensions for BCEWithLogitsLoss requires inputs and targets 
        to have the same dimensions, while CrossEntropyLoss inputs take *(N,C)* and target takes *(N)*. 
-       As our target shape is *(n_samples, )*, we use torch.squeeze to transform *tag_scores* from *(n_samples, 1)* to 
+       As our target shape is *(n_samples, )*, we use *torch.squeeze* to transform *tag_scores* from *(n_samples, 1)* to 
        *(n_samples, )*: 
         
         # Before  
