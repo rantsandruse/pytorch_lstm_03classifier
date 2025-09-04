@@ -1,4 +1,4 @@
-# Learn pytorch in 10 days - Day 3: Change an LSTM Tagger to LSTM classifier (with ~5 lines of code)
+# Learn pytorch in five days - Day 3: Change an LSTM Tagger to LSTM classifier (with ~5 lines of code)
 
 The main goal of day 3 is to modify an LSTM tagger to an LSTM classifier. This will contribute 
 to our ultimate goal of the week, which is to train a state-of-the-art binary sequence classifier for IMDB sentiment analysis.
